@@ -1,0 +1,94 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class PortfolioApp {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            // Frame utama
+            JFrame frame = new JFrame("Yoyoh Kurniyasih Portfolio");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(800, 600);
+            frame.setLayout(new BorderLayout());
+
+            // Header
+            JPanel headerPanel = new JPanel();
+            headerPanel.setLayout(new BorderLayout());
+            headerPanel.setBackground(new Color(137, 207, 240)); // #89CFF0
+            JLabel title = new JLabel("Yoyoh Kurniyasih", JLabel.CENTER);
+            title.setFont(new Font("Poppins", Font.BOLD, 30));
+            title.setForeground(Color.WHITE);
+            JLabel subtitle = new JLabel("Mahasiswa teladan di Universitas Yatsi Madani", JLabel.CENTER);
+            subtitle.setFont(new Font("Poppins", Font.PLAIN, 16));
+            subtitle.setForeground(Color.WHITE);
+            headerPanel.add(title, BorderLayout.CENTER);
+            headerPanel.add(subtitle, BorderLayout.SOUTH);
+            frame.add(headerPanel, BorderLayout.NORTH);
+
+            // Tabbed Panel
+            JTabbedPane tabbedPane = new JTabbedPane();
+
+            // Tab Profile
+            JPanel profilePanel = new JPanel();
+            profilePanel.setLayout(new BorderLayout());
+            JLabel profileImage = new JLabel(new ImageIcon("path/to/profile-image.jpg")); // Ganti dengan path gambar
+            profileImage.setHorizontalAlignment(JLabel.CENTER);
+            JTextArea profileText = new JTextArea(
+                "Halo! Saya Yoyoh Kurniyasih, mahasiswa S1 Ilmu Komputer yang memiliki semangat dalam " +
+                "pengembangan teknologi dan pemecahan masalah berbasis komputer.\n\n" +
+                "TTL: Tangerang, 12 Juni 2005\n" +
+                "Alamat: Kp. Cadas, Ds. Karet, Kec. Sepatan, Kab. Tangerang, Banten\n" +
+                "Cita-cita: Data Analyst, Database Administrator\n" +
+                "Jurusan: S1 Ilmu Komputer\n" +
+                "Organisasi: Mapala Himapasti"
+            );
+            profileText.setEditable(false);
+            profileText.setLineWrap(true);
+            profileText.setWrapStyleWord(true);
+            profilePanel.add(profileImage, BorderLayout.NORTH);
+            profilePanel.add(new JScrollPane(profileText), BorderLayout.CENTER);
+            tabbedPane.addTab("Profile", profilePanel);
+
+            // Tab Pendidikan
+            JPanel educationPanel = new JPanel();
+            educationPanel.setLayout(new GridLayout(4, 1));
+            educationPanel.add(new JLabel("<html><b>2023 - Sekarang:</b> Universitas Yatsi Madani, S1 Ilmu Komputer</html>"));
+            educationPanel.add(new JLabel("<html><b>2020 - 2023:</b> MA Al-Mansyuriyah Grudug, Sepatan</html>"));
+            educationPanel.add(new JLabel("<html><b>2017 - 2020:</b> Mts Awwabin Sepatan</html>"));
+            educationPanel.add(new JLabel("<html><b>2011 - 2017:</b> SDN Karet 1</html>"));
+            tabbedPane.addTab("Pendidikan", educationPanel);
+
+            // Tab Projects
+            JPanel projectsPanel = new JPanel();
+            projectsPanel.setLayout(new GridLayout(2, 1));
+            JPanel project1 = new JPanel(new BorderLayout());
+            project1.add(new JLabel(new ImageIcon("path/to/project1-image.jpg")), BorderLayout.WEST); // Ganti dengan path gambar
+            project1.add(new JLabel("<html><b>YOYOH KURNIYASIH</b><br>Yoyoh adalah mahasiswa S1 Ilmu Komputer...</html>"));
+            JPanel project2 = new JPanel(new BorderLayout());
+            project2.add(new JLabel(new ImageIcon("path/to/project2-image.jpg")), BorderLayout.WEST); // Ganti dengan path gambar
+            project2.add(new JLabel("<html><b>UNIVERSITAS YATSI MADANI</b><br>Kampus ini menawarkan pendidikan...</html>"));
+            projectsPanel.add(project1);
+            projectsPanel.add(project2);
+            tabbedPane.addTab("Projects", projectsPanel);
+
+            // Tab Kontak
+            JPanel contactPanel = new JPanel();
+            contactPanel.setLayout(new GridLayout(3, 1));
+            contactPanel.add(new JLabel("<html><b>Email:</b> <a href='mailto:grimm2001793@gmail.com'>grimm2001793@gmail.com</a></html>"));
+            contactPanel.add(new JLabel("<html><b>WA:</b> +62 889 738 93770</html>"));
+            contactPanel.add(new JLabel("<html><b>Alamat:</b> Jl. Aria Santika No. 40A...</html>"));
+            tabbedPane.addTab("Kontak", contactPanel);
+
+            frame.add(tabbedPane, BorderLayout.CENTER);
+
+            // Footer
+            JLabel footer = new JLabel("© 2024 Yoyoh Kurniyasih. All rights reserved.", JLabel.CENTER);
+            footer.setFont(new Font("Poppins", Font.PLAIN, 12));
+            footer.setBackground(new Color(137, 207, 240)); // #89CFF0
+            footer.setOpaque(true);
+            footer.setForeground(Color.WHITE);
+            frame.add(footer, BorderLayout.SOUTH);
+
+            frame.setVisible(true);
+        });
+    }
+}
